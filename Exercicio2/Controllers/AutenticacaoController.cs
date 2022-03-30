@@ -4,15 +4,13 @@ using Exercicio2.Utils;
 using System.Net;
 
 
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-
 namespace Exercicio2.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
     public class AutenticacaoController : ControllerBase
     {
-        // POST api/<AutenticacaoController>
+        // POST api/register>
         [HttpPost]
         public void Register([FromBody] Utilizadores utilizador)
         {
@@ -34,6 +32,7 @@ namespace Exercicio2.Controllers
             }
         }
 
+        // POST api/login
         public void Login([FromBody] Utilizadores utilizador)
         {
             using (var db = new DbHelper())
