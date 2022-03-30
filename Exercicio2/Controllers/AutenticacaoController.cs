@@ -21,6 +21,7 @@ namespace Exercicio2.Controllers
 
                 if (utilizadorOnDb == null)
                 {
+                    utilizador.Cod_Utilizador = new Random().Next();
                     utilizador.Password = CryptoUtils.Sha256(utilizador.Password);
                     db.Utilizadores.Add(utilizador);
                     db.SaveChanges();
@@ -40,7 +41,6 @@ namespace Exercicio2.Controllers
                 Utilizadores utilizadorOnDb = db.Utilizadores.Where(uti =>
                     uti.Email.Equals(utilizador.Email)).First();
 
-                utilizadorOnDb.Password = CryptoUtils.Sha256(utilizadorOnDb.Password);
                 utilizador.Password = CryptoUtils.Sha256(utilizador.Password);
 
                 if (utilizadorOnDb != null)
